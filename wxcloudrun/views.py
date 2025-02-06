@@ -79,7 +79,8 @@ def get_qr():
     try:
         # 获取access_token (微信云托管环境下自动鉴权)
         app_id = 'wx622594f6f81fc054'
-        token_url = f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={app_id}'
+        app_secret_key = 'd6f18166ad8c680f56d86088fc71cf0e'
+        token_url = f'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={app_id}&secret={app_secret_key}'
         token_response = requests.get(token_url)
         access_token = token_response.json().get('access_token')
 
