@@ -109,7 +109,7 @@ def get_qr():
         if 'ticket' not in qr_result:
             error_info = {
                 'status_code': qr_response.status_code,
-                'header': qr_response.headers,
+                'header': dict(qr_response.headers),  # Convert headers to a regular dictionary
                 'response': qr_response.json()
             }
             return make_err_response(f'生成二维码失败: {json.dumps(error_info, ensure_ascii=False)}')
